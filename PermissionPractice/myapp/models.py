@@ -14,6 +14,7 @@ class PostModelLEvel(models.Model):
     body = models.TextField()
     is_published = models.BooleanField(default=False)
 
+
     class Meta:
         permissions = [
             (
