@@ -9,19 +9,17 @@ class PostListView(PermissionRequiredMixin, ListView):
     model = Post
 
 #for user view level use ---> permission required Mixin 
-#for model level use -->>UserPassesTextMixin
 
+#for model level use -->>UserPassesTextMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.shortcuts import render
 from django.views.generic import View
 
+
 class PostListViewModelLevel(UserPassesTestMixin, View):
     template_name = "post_details.html"
-    
-    
     def test_func(self):
         return self.request.user.has_perm("myapp.set_published_status")
-    
     
     def post(self, request, *args, **kwargs):
         post_id = request.POST.get('post_id')
@@ -34,3 +32,4 @@ class PostListViewModelLevel(UserPassesTestMixin, View):
     
     def get(self, request, *args, **kwargs):
         return render(request,'myapp/post_details.html')
+    
