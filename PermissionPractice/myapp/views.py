@@ -15,7 +15,6 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.shortcuts import render
 from django.views.generic import View
 
-
 class PostListViewModelLevel(UserPassesTestMixin, View):
     template_name = "post_details.html"
     def test_func(self):
@@ -33,3 +32,5 @@ class PostListViewModelLevel(UserPassesTestMixin, View):
     def get(self, request, *args, **kwargs):
         return render(request,'myapp/post_details.html')
     
+
+

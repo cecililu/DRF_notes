@@ -22,11 +22,20 @@ class PostModelLEvel(models.Model):
                 "Can set the status of the post to either publish or not"
             )    ]
         
+
 class MuniModel(models.Model):
     name=name=models.CharField(max_length=100)
-       
+         
 class DisasterModel(models.Model):
     name=models.CharField(max_length=100)
+
     muni=models.ForeignKey(MuniModel,on_delete=models.CASCADE)
+    
+    isclosed=models.BooleanField(default=False)
+    
+    class Meta:
+        permissions = (
+            ('update_isclosed', 'Update the disaster status'),
+        )
     
     
