@@ -10,4 +10,5 @@ class DisasterSerializer(serializers.ModelSerializer):
     Muni=MuniSerializer()
     class Meta:    
         model=Disaster
+        
         fields= "__all__"

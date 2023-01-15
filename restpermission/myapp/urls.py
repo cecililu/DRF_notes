@@ -3,6 +3,7 @@ from .views import *
 
 urlpatterns = [
     
-    path("", DisasterView.as_view()),   
+    path("test", DisasterView.as_view()),
+    path("test1/<int:pk>", DisasterViewDetail.as_view())   
 
 ]
