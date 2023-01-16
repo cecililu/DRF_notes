@@ -61,12 +61,12 @@ class DisasterViewDetail(RetrieveAPIView):
 from guardian.shortcuts import assign_perm
 from rest_framework import viewsets
 from rest_framework.permissions import DjangoObjectPermissions
-
 from .models import Disaster
 from myapp.serializer import DisasterSerializer          
 
+
 class DisasterObj(viewsets.ModelViewSet):
-    permission_classes = [DjangoObjectPermissions,permissions.IsAuthenticated] 
+    permission_classes = [DjangoObjectPermissions] 
     queryset = Disaster.objects.all()
     serializer_class = DisasterSerializer
 
@@ -77,5 +77,4 @@ class DisasterObj(viewsets.ModelViewSet):
                  
             
             
-        
-        
+
