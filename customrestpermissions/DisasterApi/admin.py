@@ -49,14 +49,15 @@ class Myadmin(UserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm    
     list_display = ('muni',)
+    
     fieldsets = (
-        (None, {'fields': ('muni',)}),
+        (None, {'fields': ('muni','password','username','is_staff')}),
     )
     
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('muni', 'password1', 'password2'),
+            'fields': ('muni', 'password1', 'password2','username','is_staff'),
         }),
     )
     
