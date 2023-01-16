@@ -11,8 +11,8 @@ from django.contrib.auth.models import AbstractUser
 
 class Main(models.Model):
     name=models.CharField(max_length=200)
-    muni=models.ForeignKey(Municipality,on_delete=models.CASCADE)
-    
-class User(AbstractUser,PermissionsMixin):
-    muni = models.ForeignKey(Municipality,blank=True,on_delete=models.CASCADE)
-    
+    muni=models.ForeignKey(Municipality,on_delete=models.CASCADE,blank=True,null=True)
+     
+# class User(AbstractUser):
+#     muni = models.ForeignKey(Municipality,blank=True,on_delete=models.CASCADE,null=True)
+#     USERNAME_FIELD='username'
